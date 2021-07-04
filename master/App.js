@@ -19,7 +19,7 @@ function HomeTabs(){
         if(route.name==='Home')
         iconName = focused ? 'ios-information-circle': 'ios-information-circle-outline';
       else if(route.name ==='Filter')
-          iconName = focused ? 'search-circle': 'search';
+          iconName =  'search';
       
       return <Ionicons name={iconName} size={size} color={color}/>
       },
