@@ -25,10 +25,10 @@ function HomeTabs(){
       },
     })}
       tabBarOptions={{
-    activeTintColor: 'white',
-    inactiveTintColor: 'orange',
+    activeTintColor: 'orange',
+    inactiveTintColor: 'white',
     /* showLabel: false,*/
-    style: { width: '90%',margin: 20, height:80,backgroundColor: 'lightorange',borderWidth:1,borderColor: 'lightorange' , borderRadius:'10px', paddingTop:10}
+    style: { width: '100%', height:80,backgroundColor: 'gray',borderWidth:1,borderColor: 'gray' , borderRadius:'10px', paddingTop:10}
     }}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Filter" component={FilterScreen} />
@@ -44,11 +44,12 @@ export default function App(){
   return (
   <SafeAreaProvider>
     <NavigationContainer>
-      <Stack.Navigator headerMode='none'>
+      <HomeTabs/>
+      {/* <Stack.Navigator headerMode='none'>
 
         <Stack.Screen name='Home' component={HomeScreen}/>
         <Stack.Screen name='Filter' component={FilterScreen}/>
-      </Stack.Navigator>
+      </Stack.Navigator> */}
     </NavigationContainer>
     </SafeAreaProvider>
   )
