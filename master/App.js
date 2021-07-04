@@ -28,7 +28,7 @@ function HomeTabs(){
     activeTintColor: 'orange',
     inactiveTintColor: 'white',
     /* showLabel: false,*/
-    style: { width: '100%', height:80,backgroundColor: 'gray',borderWidth:1,borderColor: 'gray' , borderRadius:'10px', paddingTop:10}
+    style: { width: '100%', height:80,backgroundColor: 'gray',borderWidth:1,borderColor: 'gray' , borderRadius:'10px'}
     }}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Filter" component={FilterScreen} />
