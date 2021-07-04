@@ -11,6 +11,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		282A95EE3F044A9E9D5139C7 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CC504E85BA145198A047767 /* Ionicons.ttf */; };
 		4B2BC011603BFE3349E9E3DD /* libPods-recipes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7856E5356BE77C831D6CCC5 /* libPods-recipes.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		FF189F1567110541CCD661D8 /* libPods-recipes-recipesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D530668F48E3AD8A0CC114 /* libPods-recipes-recipesTests.a */; };
@@ -37,6 +38,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = recipes/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = recipes/main.m; sourceTree = "<group>"; };
 		38D7016762A0918A162ADB9A /* Pods-recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipes.release.xcconfig"; path = "Target Support Files/Pods-recipes/Pods-recipes.release.xcconfig"; sourceTree = "<group>"; };
+		3CC504E85BA145198A047767 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-ionicons/fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		4ED37DC03129C163A5EAB757 /* Pods-recipes-recipesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipes-recipesTests.release.xcconfig"; path = "Target Support Files/Pods-recipes-recipesTests/Pods-recipes-recipesTests.release.xcconfig"; sourceTree = "<group>"; };
 		75A9F10CB174F8D0D5315BD7 /* Pods-recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipes.debug.xcconfig"; path = "Target Support Files/Pods-recipes/Pods-recipes.debug.xcconfig"; sourceTree = "<group>"; };
 		76A0ADED4D9959516ED92DF4 /* Pods-recipes-recipesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipes-recipesTests.debug.xcconfig"; path = "Target Support Files/Pods-recipes-recipesTests/Pods-recipes-recipesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +108,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D2246AF27554C6E85A3A826 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3CC504E85BA145198A047767 /* Ionicons.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +133,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				AF769E9C26DD17C69ECF098A /* Pods */,
+				7D2246AF27554C6E85A3A826 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -245,6 +257,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				282A95EE3F044A9E9D5139C7 /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

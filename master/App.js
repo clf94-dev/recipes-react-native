@@ -1,112 +1,55 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import * as React from 'react';
+import { View, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Ionicons from 'react-native-ionicons';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import HomeScreen from './screens/HomeScreen'
+import FilterScreen from './screens/FilterScreen'
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Tab =createBottomTabNavigator();
+function HomeTabs(){
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <Tab.Navigator screenOptions={({route}) => ({
+      tabBarIcon: ({focused, color, size}) =>{
+        let iconName;
+        if(route.name==='Home')
+        iconName = focused ? 'ios-information-circle': 'ios-information-circle-outline';
+      else if(route.name ==='Filter')
+          iconName = focused ? 'search-circle': 'search';
+      
+      return <Ionicons name={iconName} size={size} color={color}/>
+      },
+    })}
+      tabBarOptions={{
+    activeTintColor: 'white',
+    inactiveTintColor: 'orange',
+    /* showLabel: false,*/
+    style: { width: '90%',margin: 20, height:80,backgroundColor: 'lightorange',borderWidth:1,borderColor: 'lightorange' , borderRadius:'10px', paddingTop:10}
+    }}>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Filter" component={FilterScreen} />
+
+
+    </Tab.Navigator>
   );
-};
+}
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const Stack = createStackNavigator();
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+export default function App(){
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+  <SafeAreaProvider>
+    <NavigationContainer>
+      <Stack.Navigator headerMode='none'>
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+        <Stack.Screen name='Home' component={HomeScreen}/>
+        <Stack.Screen name='Filter' component={FilterScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+    </SafeAreaProvider>
+  )
+}
