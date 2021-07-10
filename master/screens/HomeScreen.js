@@ -1,9 +1,9 @@
-import  React, {useState, useEffect} from 'react';
-import {View, Text, Button, Image} from 'react-native'
+import  React, {useState, useEffect,useRef} from 'react';
+import {View, Text, Button, Image, FlatList} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import axios from 'axios';
 export default function HomeScreen ({navigation}){
-
+  const flatlistRef = useRef();
   const [info, setInfo] = useState([])
   useEffect(() =>{
     async function getRecipes(index){
@@ -12,7 +12,7 @@ export default function HomeScreen ({navigation}){
       await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
       .then(response=> {
         console.log('response', response)
-array[index] = response.data.meals[0].strMealThumb
+array[index] = response.data.meals[0]
         //setInfo([...info, response.data.meals[0].strMealThumb])
         index++;
       })
@@ -34,6 +34,15 @@ array[index] = response.data.meals[0].strMealThumb
     return(
         <SafeAreaView edges={['right', 'bottom', 'left']}>
         <View>
+        <FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' horizontal style={{maxHeight:370}} data={info} keyExtractor={item => item.idMeal} renderItem={({item}) => (
+          console.log('item.strMealThumb', item.strMealThumb),
+          console.log('item',item),
+                 <View >
+                     <Image style={{width: 400, height: 400}}  source={{uri:`${item.strMealThumb}`}} />
+                     <Text style={{position: 'absolute', top: 325, left:25, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
+                </View>
+               
+            )} />   
             <Image style={{width:'100%', height: 350, borderBottomLeftRadius:50,borderBottomRightRadius:50}} source={info[1]}/>
 <Text>
     Home
