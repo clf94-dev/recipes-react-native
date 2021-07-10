@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import HomeScreen from './screens/HomeScreen'
 import FilterScreen from './screens/FilterScreen'
-
+import RecipeScreen from './screens/RecipeScreen'
 
 const Tab =createBottomTabNavigator();
 function HomeTabs(){
@@ -45,12 +45,12 @@ export default function App(){
   return (
   <SafeAreaProvider>
     <NavigationContainer>
-      <HomeTabs/>
-      {/* <Stack.Navigator headerMode='none'>
+{/*       <HomeTabs/> */}
+      <Stack.Navigator headerMode='none'>
 
-        <Stack.Screen name='Home' component={HomeScreen}/>
-        <Stack.Screen name='Filter' component={FilterScreen}/>
-      </Stack.Navigator> */}
+        <Stack.Screen name='Home' component={HomeTabs}/>
+        <Stack.Screen name='Recipe' component={RecipeScreen}/>
+      </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaProvider>
   )
