@@ -8,25 +8,21 @@ export default function HomeScreen ({navigation}){
   useEffect(() =>{
     async function getRecipes(index){
       let array= [];
-      while(index<11){
+      while(index<10){
       await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
       .then(response=> {
-        console.log('response', response)
-array[index] = response.data.meals[0]
-        //setInfo([...info, response.data.meals[0].strMealThumb])
+        array[index] = response.data.meals[0]
         index++;
       })
       .catch(error=>{
         console.log('error', error)
       })
     }
-    console.log('array', array)
     setInfo(array)
     }
     let index = 0;
     console.log('useEffect')
     
-      console.log('index', index)
      getRecipes(index)
     
  
@@ -39,7 +35,7 @@ array[index] = response.data.meals[0]
           console.log('item',item),
                  <View >
                      <Image style={{width: 400, height: 400}}  source={{uri:`${item.strMealThumb}`}} />
-                     <Text style={{position: 'absolute', top: 325, left:25, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
+                     <Text style={{position: 'absolute', top: 315, left:25, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
                 </View>
                
             )} />   

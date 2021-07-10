@@ -2,12 +2,12 @@ import * as React from 'react';
 import {View, Text, Button} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function FilterScreen ({navigation}){
+export default function RecipeScreen ({navigation}){
     return(
         <SafeAreaView>
         <View>
 <Text>
-    Filter/Search
+  Recipe
 </Text>
 
         </View>
