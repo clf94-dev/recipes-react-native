@@ -1,5 +1,5 @@
 import  React, {useRef} from 'react';
-import {View, Text, Button, Image, FlatList} from 'react-native'
+import {View, Text, Button, Image, FlatList, ScrollView} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function RecipeScreen ({route}){
@@ -14,21 +14,20 @@ if(data.data[ingredient] && data.data[amount]){ingredientsArray[index] = {ingred
     index++;}else index=20;
 
 }
-
-console.log('ingredientsArray', ingredientsArray)
-    const flatlistRef = useRef();
-console.log('data', data)
+    //const flatlistRef = useRef();
     return(
-        <SafeAreaView edges={['right', 'bottom', 'left']}>
-        <View>
+        <SafeAreaView edges={['right', 'bottom', 'left']} >
+        <ScrollView>
         <Image style={{width: 400, height: 500}}  source={{uri:`${data.data.strMealThumb}`}} />
                      <Text  style={{ fontSize: 30,paddingTop: 20, paddingLeft:10, color: 'orange'}} >{data.data.strMeal} ({data.data.strArea})</Text>
               <Text style={{ fontSize: 20,paddingTop: 20, paddingLeft:10, color: 'gray'}}>Ingredients:</Text>
-              <FlatList ref={flatlistRef} vertical showsVerticalScrollIndicator='false' style={{maxHeight:370}} data={ingredientsArray} keyExtractor={item => item.ingredient} renderItem={({item}) => (
-<Text style={{ fontSize: 18,paddingTop: 20, paddingLeft:10, color: 'gray'}}>{item.amount} of <Text style={{color:'orange'}}>{item.ingredient}</Text> </Text>
-)} />   
+        
+           { ingredientsArray.map(item => 
+            <Text style={{ fontSize: 18,paddingTop: 20, paddingLeft:10, color: 'gray'}}>{item.amount} of <Text style={{color:'orange'}}>{item.ingredient}</Text> </Text>
+)} 
+ 
      
-        </View>
+        </ScrollView>
         </SafeAreaView>
     )
 }
