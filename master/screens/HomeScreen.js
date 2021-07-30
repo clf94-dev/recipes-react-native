@@ -5,32 +5,48 @@ import axios from 'axios';
 export default function HomeScreen ({navigation}){
   const flatlistRef = useRef();
   const [info, setInfo] = useState([])
+  const [categoriesList, setCategoriesList] = useState([])
+
+  async function getRecipes(index){
+    let array= [];
+    while(index<10){
+    await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
+    .then(response=> {
+      array[index] = response.data.meals[0]
+      index++;
+    })
+    .catch(error=>{
+      console.log('error', error)
+    })
+  }
+  setInfo(array)
+  }
+  async function getCategories(){
+    let categoriesArray = []
+    await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
+    .then (response =>{
+      console.log('response', response)
+      categoriesArray = response.data.meals
+    })
+    .catch (error =>{
+      console.log('error categories', error)
+    })
+    console.log('categoriesArray', categoriesArray)
+    setCategoriesList(categoriesArray)
+  }
   useEffect(() =>{
-    async function getRecipes(index){
-      let array= [];
-      while(index<10){
-      await axios.get('https://www.themealdb.com/api/json/v1/1/random.php')
-      .then(response=> {
-        array[index] = response.data.meals[0]
-        index++;
-      })
-      .catch(error=>{
-        console.log('error', error)
-      })
-    }
-    setInfo(array)
-    }
+    
     let index = 0;
     console.log('useEffect')
     
      getRecipes(index)
-    
+    getCategories()
  
   },[true])
     return(
         <SafeAreaView edges={['right', 'bottom', 'left']}>
         <View>
-        <FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' horizontal style={{maxHeight:370}} data={info} keyExtractor={item => item.idMeal} renderItem={({item}) => (
+        <FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:370}} data={info} keyExtractor={item => item.idMeal} renderItem={({item}) => (
              <TouchableOpacity onPress={() => navigation.navigate('Recipe', {data:item})}>
              <View >
                      <Image style={{width: 400, height: 400}}  source={{uri:`${item.strMealThumb}`}} />
@@ -39,8 +55,18 @@ export default function HomeScreen ({navigation}){
                </TouchableOpacity>
             )} />   
           <Text>
-    Home
+    Categories
 </Text>
+<FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:150}} data={categoriesList} keyExtractor={item =>item.strCategory} renderItem={({item}) =>(
+  <TouchableOpacity onPress={() => navigation.navigate('Categories', {data:item})}>
+  <View >
+          
+          <Text style={{margin: 10,fontWeight:'bold', fontSize: 25, color: 'gray'}}>{item.strCategory}</Text>
+     </View>
+    </TouchableOpacity>
+ )} />   
+
+
 
         </View>
            </SafeAreaView>

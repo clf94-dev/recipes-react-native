@@ -9,6 +9,7 @@ import Ionicons from 'react-native-ionicons';
 import HomeScreen from './screens/HomeScreen'
 import FilterScreen from './screens/FilterScreen'
 import RecipeScreen from './screens/RecipeScreen'
+import CategoriesScreen from './screens/CategoriesScreen'
 
 const Tab =createBottomTabNavigator();
 function HomeTabs(){
@@ -49,6 +50,7 @@ export default function App(){
 
         <Stack.Screen name='Home' component={HomeTabs}/>
         <Stack.Screen name='Recipe' component={RecipeScreen}/>
+        <Stack.Screen name='Categories' component={CategoriesScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaProvider>
