@@ -38,9 +38,9 @@ export default function areaScreen ({navigation,route}){
             
          
                 }}>
-             <View >
+             <View style={{maxWidth: 250, flexWrap: 'wrap'}}>
                      <Image style={{width: 350, height: 400, borderRadius:30, marginBottom:20, marginLeft:20}}  source={{uri:`${item.strMealThumb}`}} />
-                     <Text style={{position: 'absolute', top: 315, left:35, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
+                     <Text style={{position: 'absolute', top: 315, left:35,fontWeight:'bold' ,numberOfLines:2,fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
                 </View>
                </TouchableOpacity>
             )} /> 

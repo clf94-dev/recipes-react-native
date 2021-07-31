@@ -80,7 +80,7 @@ const urlYoutubeArray =data.data.strYoutube.split('=')
             <Text style={{ fontSize: 18,paddingTop: 20, paddingLeft:10, color: 'gray'}}>{item.amount} of <Text style={{color:'orange'}}>{item.ingredient}</Text> </Text>
 )}
 
-<Text style={{fontSize: 25, color: 'gray',marginTop:15, marginLeft:5,marginBottom:10, textDecorationLine:'underline'}}> Steps</Text>
+<Text style={{fontSize: 25,color: 'gray',marginTop:15, marginLeft:5,marginBottom:10, textDecorationLine:'underline'}}> Steps</Text>
 
 <YoutubePlayer
 

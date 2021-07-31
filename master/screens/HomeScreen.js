@@ -81,9 +81,9 @@ console.log('response', response.data)
         <ScrollView>
         <FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:370}} data={info} keyExtractor={item => item.idMeal} renderItem={({item}) => (
              <TouchableOpacity onPress={() => navigation.navigate('Recipe', {data:item})}>
-             <View >
+             <View style={{maxWidth: 400, flexWrap: 'wrap'}}>
                      <Image style={{width: 400, height: 400}}  source={{uri:`${item.strMealThumb}`}} />
-                     <Text style={{position: 'absolute', top: 315, left:25, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
+                     <Text style={{position: 'absolute', top: 315, left:25,fontWeight:'bold' ,numberOfLines: 2, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
                 </View>
                </TouchableOpacity>
             )} />   
