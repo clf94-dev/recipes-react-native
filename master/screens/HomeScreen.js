@@ -58,7 +58,7 @@ export default function HomeScreen ({navigation}){
     Categories
 </Text>
 <FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:150}} data={categoriesList} keyExtractor={item =>item.strCategory} renderItem={({item}) =>(
-  <TouchableOpacity onPress={() => navigation.navigate('Categories', {data:item})}>
+  <TouchableOpacity onPress={() => navigation.navigate('Categories', {data:item.strCategory})}>
   <View >
           
           <Text style={{margin: 10,fontWeight:'bold', fontSize: 25, color: 'gray'}}>{item.strCategory}</Text>
