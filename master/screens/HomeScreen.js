@@ -83,7 +83,7 @@ console.log('response', response.data)
              <TouchableOpacity onPress={() => navigation.navigate('Recipe', {data:item})}>
              <View style={{maxWidth: 400, flexWrap: 'wrap'}}>
                      <Image style={{width: 400, height: 400}}  source={{uri:`${item.strMealThumb}`}} />
-                     <Text style={{position: 'absolute', top: 315, left:25,fontWeight:'bold' ,numberOfLines: 2, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
+                     <Text style={{position: 'absolute', top: 300, left:25,fontWeight:'bold' ,numberOfLines: 2, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
                 </View>
                </TouchableOpacity>
             )} />   
