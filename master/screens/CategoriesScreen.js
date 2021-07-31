@@ -52,7 +52,7 @@ c: categoryName,
 <Text style={{fontSize: 35, margin: 15, color: 'orange'}}>
     {categoryName}
 </Text>
-<FlatList ref={flatlistRef} vertical showsVerticalScrollIndicator='false' /* style={{maxHeight:370}} */ data={categoryList} keyExtractor={item => item.idMeal} renderItem={({item}) => (
+<FlatList  ref={flatlistRef} vertical showsVerticalScrollIndicator='false' /* style={{maxHeight:370}} */ data={categoryList} keyExtractor={item => item.idMeal} renderItem={({item}) => (
              <TouchableOpacity onPress={async () => {
                 await getInfoRecipe(item.strMeal)
             
