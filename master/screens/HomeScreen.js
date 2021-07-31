@@ -8,6 +8,7 @@ export default function HomeScreen ({navigation}){
   const [categoriesList, setCategoriesList] = useState([])
   const [areasList, setAreasList] = useState([])
   const [areasImagesList, setAreasImagesList] = useState([])
+  const [areasRecipesInfo, setAreasRecipesInfo] = useState([])
   async function getRecipes(index){
     let array= [];
     while(index<10){
@@ -36,6 +37,7 @@ export default function HomeScreen ({navigation}){
   async function getAreas(){
     let areasArray = []
     let areasImagesArray =[]
+    let areasRecipesInfo = []
     await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?a=list')
     .then (response =>{
       areasArray = response.data.meals
@@ -53,6 +55,7 @@ export default function HomeScreen ({navigation}){
       .then (response =>{
 console.log('response', response.data)
         areasImagesArray.push(response.data.meals[0].strMealThumb)
+        areasRecipesInfo.push(response.data.meals)
       })
       .catch (error =>{
         console.log('error areas', error)
@@ -61,6 +64,7 @@ console.log('response', response.data)
     console.log('areasImagesArray', areasImagesArray)
     setAreasList(areasArray)
     setAreasImagesList(areasImagesArray)
+    setAreasRecipesInfo(areasRecipesInfo)
   }
   useEffect(() =>{
     
@@ -99,7 +103,7 @@ console.log('response', response.data)
     Areas
 </Text>
 <FlatList ref={areasListRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:200, width: 400, marginLeft: 10}} data={areasList} keyExtractor={item =>item.strArea} renderItem={({item, index}) =>(
-  <TouchableOpacity onPress={() => navigation.navigate('Area', {data:item.strArea})}>
+  <TouchableOpacity onPress={() => navigation.navigate('Area', {data:areasRecipesInfo[index], area: areasList[index].strArea})}>
   <View style={{ marginBottom:20, marginLeft:20}} >
   <Text style={{position: 'absolute', top: 150, left:25,zIndex:2, fontSize: 20, fontWeight:'bold', color: 'white'}}>{areasList[index].strArea}</Text>
 

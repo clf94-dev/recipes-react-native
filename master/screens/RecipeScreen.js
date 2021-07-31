@@ -65,6 +65,7 @@ const textScale = this._draggedValue.interpolate({
   extrapolate: "clamp"
 }); */
     //const flatlistRef = useRef();
+    console.log('data.data.strYoutube', data.data.strYoutube)
 const urlYoutubeArray =data.data.strYoutube.split('=') 
     return(
         <SafeAreaView edges={['right', 'bottom', 'left']} >

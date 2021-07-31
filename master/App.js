@@ -10,7 +10,7 @@ import HomeScreen from './screens/HomeScreen'
 import FilterScreen from './screens/FilterScreen'
 import RecipeScreen from './screens/RecipeScreen'
 import CategoriesScreen from './screens/CategoriesScreen'
-
+import AreaScreen from './screens/AreaScreen'
 const Tab =createBottomTabNavigator();
 function HomeTabs(){
   return (
@@ -51,6 +51,8 @@ export default function App(){
         <Stack.Screen name='Home' component={HomeTabs}/>
         <Stack.Screen name='Recipe' component={RecipeScreen}/>
         <Stack.Screen name='Categories' component={CategoriesScreen}/>
+        <Stack.Screen name='Area' component={AreaScreen}/>
+   
       </Stack.Navigator>
     </NavigationContainer>
     </SafeAreaProvider>
