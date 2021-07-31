@@ -1,5 +1,6 @@
 import axios from 'axios';
 import  React, {useEffect, useRef, useState} from 'react';
+import YoutubePlayer from 'react-native-youtube-iframe';
 import {View, Text, Button, Image, FlatList, ScrollView, Animated, Dimensions} from 'react-native'
 import { set } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,11 +16,11 @@ export default function RecipeScreen ({route}){
     
      /*  _draggedValue = new Animated.Value(180); */
     const data = route.params;
-    
+    let instructArray = [];
     let index = 0;
     let ingredientsArray= []
     
-    if(data) 
+    if(data) {
    while(index<20){
     ingredient = 'strIngredient' + parseInt(index+1 )
     amount = 'strMeasure' + parseInt(index+1)
@@ -29,7 +30,8 @@ else index=20;
 
 
 }
- 
+instructArray = data.data.strInstructions.split('.')
+}
 
 /* const { top, bottom } = draggableRange;
 
@@ -63,19 +65,31 @@ const textScale = this._draggedValue.interpolate({
   extrapolate: "clamp"
 }); */
     //const flatlistRef = useRef();
+const urlYoutubeArray =data.data.strYoutube.split('=') 
     return(
         <SafeAreaView edges={['right', 'bottom', 'left']} >
           <View>
         <ScrollView>
-        
           <Image style={{width: 400, height: 500}}  source={{uri:`${data.data.strMealThumb}`}} />
                      <Text  style={{ fontSize: 30,paddingTop: 20, paddingLeft:10, color: 'orange'}} >{data.data.strMeal} ({data.data.strArea})</Text>
-                    <Text style={{ fontSize: 20,paddingTop: 20, paddingLeft:10, color: 'gray'}}>Ingredients:</Text>
-        
+                    <Text style={{ fontSize: 25,paddingTop: 20, paddingLeft:10, color: 'gray', textDecorationLine:'underline'}}>Ingredients:</Text>
+
+      
            { ingredientsArray.map(item => 
             <Text style={{ fontSize: 18,paddingTop: 20, paddingLeft:10, color: 'gray'}}>{item.amount} of <Text style={{color:'orange'}}>{item.ingredient}</Text> </Text>
 )}
-     
+
+<Text style={{fontSize: 25, color: 'gray',marginTop:15, marginLeft:5,marginBottom:10, textDecorationLine:'underline'}}> Steps</Text>
+
+<YoutubePlayer
+
+        height={220}
+        play={false}
+        videoId={urlYoutubeArray[1]}
+      />
+{ instructArray.map(item => 
+            <Text style={{ fontSize: 18,paddingTop: 20, paddingLeft:15, color: 'gray'}}>{item} </Text>
+)}
 {/* <Text onPress={() => this._panel.show(360)}>Steps</Text>
   <SlidingUpPanel
           ref={c => (this._panel = c)}

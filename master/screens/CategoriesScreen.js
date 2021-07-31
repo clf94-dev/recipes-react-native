@@ -59,8 +59,8 @@ c: categoryName,
          
                 }}>
              <View >
-                     <Image style={{width: 400, height: 400}}  source={{uri:`${item.strMealThumb}`}} />
-                     <Text style={{position: 'absolute', top: 315, left:25, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
+                     <Image style={{width: 350, height: 400, borderRadius:30, marginBottom:20, marginLeft:20}}  source={{uri:`${item.strMealThumb}`}} />
+                     <Text style={{position: 'absolute', top: 315, left:35, fontSize: 20, color: 'white'}}>{item.strMeal}</Text>
                 </View>
                </TouchableOpacity>
             )} /> 
