@@ -42,7 +42,7 @@ c: categoryName,
       
     }, [categoryList, searchInfo])
     useEffect(()=>{
-       if(searchInfo)
+       if(searchInfo.idMeal)
         navigation.navigate('Recipe', {data:searchInfo}) 
     },[searchInfo])
     const flatlistRef = useRef();
