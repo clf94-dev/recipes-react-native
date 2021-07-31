@@ -54,10 +54,10 @@ export default function HomeScreen ({navigation}){
                 </View>
                </TouchableOpacity>
             )} />   
-          <Text>
+          <Text style={{fontSize: 35, margin: 15, color: 'orange'}}>
     Categories
 </Text>
-<FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:150}} data={categoriesList} keyExtractor={item =>item.strCategory} renderItem={({item}) =>(
+<FlatList ref={flatlistRef} horizontal showsHorizontalScrollIndicator='false' style={{maxHeight:150, marginLeft: 10}} data={categoriesList} keyExtractor={item =>item.strCategory} renderItem={({item}) =>(
   <TouchableOpacity onPress={() => navigation.navigate('Categories', {data:item.strCategory})}>
   <View >
           
