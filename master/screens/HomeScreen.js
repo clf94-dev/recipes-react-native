@@ -50,10 +50,8 @@ export default function HomeScreen ({navigation}){
       const params ={
         a: areasArray[i].strArea
       }
-      console.log('params', params)
       await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {params})
       .then (response =>{
-console.log('response', response.data)
         areasImagesArray.push(response.data.meals[0].strMealThumb)
         areasRecipesInfo.push(response.data.meals)
       })
@@ -61,7 +59,6 @@ console.log('response', response.data)
         console.log('error areas', error)
       })
     }
-    console.log('areasImagesArray', areasImagesArray)
     setAreasList(areasArray)
     setAreasImagesList(areasImagesArray)
     setAreasRecipesInfo(areasRecipesInfo)
@@ -69,7 +66,6 @@ console.log('response', response.data)
   useEffect(() =>{
     
     let index = 0;
-    console.log('useEffect')
     
      getRecipes(index)
     getCategories()
